@@ -1,3 +1,5 @@
+// +build linux
+
 package process_tool
 
 /*
@@ -16,10 +18,6 @@ import (
 	"strings"
 	"time"
 )
-
-
-type Process struct {
-}
 
 
 
@@ -44,7 +42,7 @@ func updateUptime() (err error) {
 	return err
 }
 
-func (p *Process) ProcessStartTime(pid int) (ts time.Time, err error)  {
+func ProcessStartTime(pid int) (ts time.Time, err error)  {
 	ts = time.Unix(0, 0)
 	err = updateUptime()
 	if err != nil{
